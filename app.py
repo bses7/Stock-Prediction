@@ -16,6 +16,7 @@ from keras.models import Sequential
 from keras.layers import Dense, LSTM, Dropout
 from datetime import datetime
 
+
 app = Flask(__name__)
 
 # Function to fetch and preprocess stock data
@@ -25,6 +26,7 @@ def fetch_stock_data(tickers, start_date, end_date):
         data[ticker] = yf.download(ticker, start=start_date, end=end_date)
         data[ticker].reset_index(inplace=True)
     return data
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
